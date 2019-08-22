@@ -91,7 +91,7 @@ class Instructor extends Person {
 
   grade(student) {
     console.log(
-      `${student.name} received a perfect score on ${student.subject}`
+      `${student.name} received a perfect score on ${student.favSubjects[0]}`
     );
   }
 
