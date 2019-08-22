@@ -36,12 +36,18 @@ class Student extends Person {
     console.log(`${this.favSubjects}`);
   }
 
-  PRAssignment(subject) {
-    console.log(`${this.name} has submitted a PR for ${subject}`);
+  PRAssignment(student) {
+    console.log(
+      `${student.name} has submitted a PR for ${student.favSubjects[0]}`
+    );
   }
 
-  sprintChallenge(subject) {
-    console.log(`${this.name} has began sprint challenge on a ${subject}`);
+  sprintChallenge(student) {
+    console.log(
+      `${student.name} has began sprint challenge on a ${
+        student.favSubjects[2]
+      }`
+    );
   }
 
   graduate() {
@@ -65,8 +71,8 @@ const James = new Student(
 );
 
 James.listsSubjects();
-James.PRAssignment("Ruby");
-James.sprintChallenge("Ruby");
+James.PRAssignment(James);
+James.sprintChallenge(James);
 
 class Instructor extends Person {
   constructor(name, age, location, specialty, favLanguage, catchPhrase) {
@@ -83,8 +89,10 @@ class Instructor extends Person {
     console.log(`Today we are learning about ${subject}`);
   }
 
-  grade(student, subject) {
-    console.log(`${student.name} received a perfect score on ${subject}`);
+  grade(student) {
+    console.log(
+      `${student.name} received a perfect score on ${student.subject}`
+    );
   }
 
   addOrSub(student) {
@@ -114,7 +122,7 @@ const Lecturer = new Instructor(
 );
 
 Lecturer.demo("Array");
-Lecturer.grade(James, "Array");
+Lecturer.grade(James);
 Lecturer.addOrSub(James);
 James.graduate();
 
@@ -133,10 +141,12 @@ class PM extends Person {
     console.log(`${this.name} announces ${channel} @channel standy time`);
   }
 
-  debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student.name}'\s code on ${subject}`);
+  debugsCode(student) {
+    console.log(
+      `${this.name} debugs ${student.name}'\s code on ${student.favSubjects[1]}`
+    );
   }
 }
 const TL = new PM("Anna", 30, "Europe", "WEBEU2", "Gabe");
 TL.standUp("general");
-TL.debugsCode(James, "JavaScript Callbacks");
+TL.debugsCode(James);
