@@ -43,6 +43,16 @@ class Student extends Person {
   sprintChallenge(subject) {
     console.log(`${this.name} has began sprint challenge on a ${subject}`);
   }
+
+  graduate() {
+    this.grade >= 70
+      ? console.log(`Congratulations ${this.name}, you have graduated.`)
+      : console.log(
+          `Sorry, ${
+            this.name
+          }, you cannot graduate at this time, you do not meet the cut off.`
+        );
+  }
 }
 const James = new Student(
   "James Doe",
@@ -78,21 +88,19 @@ class Instructor extends Person {
   }
 
   addOrSub(student) {
+    let previousScore = student.grade;
     let random = Math.floor(Math.random() * 15 + 1);
     var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    console.log(plusOrMinus);
     random = random * plusOrMinus;
 
-    const newScore = student.grade + random;
+    let newScore = student.grade + random;
+
+    student.grade = newScore;
 
     plusOrMinus >= 1
-      ? console.log(`Added ${random} points to ${
-          student.grade
-        } new score is ${newScore}
+      ? console.log(`Added ${random} points to ${previousScore} new score is ${newScore}
     `)
-      : console.log(`Removed ${random} points from ${
-          student.grade
-        } new score is ${newScore}
+      : console.log(`Removed ${random} points from ${previousScore} new score is ${newScore}
       `);
   }
 }
@@ -108,6 +116,7 @@ const Lecturer = new Instructor(
 Lecturer.demo("Array");
 Lecturer.grade(James, "Array");
 Lecturer.addOrSub(James);
+James.graduate();
 
 class PM extends Person {
   constructor(name, age, location, gradClassName, favInstructor) {
@@ -130,4 +139,4 @@ class PM extends Person {
 }
 const TL = new PM("Anna", 30, "Europe", "WEBEU2", "Gabe");
 TL.standUp("general");
-TL.debugsCode({ name: "Tola" }, "JavaScript Callbacks");
+TL.debugsCode(James, "JavaScript Callbacks");
