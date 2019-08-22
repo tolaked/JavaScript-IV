@@ -36,8 +36,14 @@ class Airplane {
   }
 }
 // HOW TO TEST OUR SOLUTION:
+class Plane extends Airplane {
+  constructor(name) {
+    super(name);
+    this.name = name;
+  }
+}
 
-const jumbo = new Airplane("Jumbo");
+const jumbo = new Plane("Jumbo");
 console.log(jumbo.name); // 'Jumbo'
 console.log(jumbo.isFlying); // false
 jumbo.takeOff();
@@ -66,18 +72,29 @@ class Person {
     console.log(`Hi my name is ${this.name} and I am ${this.age} years`);
   }
   eat(food) {
-    this.stomach = food;
-    console.log("I have " + this.stomach);
+    this.stomach.push(food);
+    console.log("I had " + this.stomach);
     console.log(`Hi my name is ${this.name} I will like to have ${food}`);
   }
 
-  poop(stomach, food) {
+  poop() {
     this.stomach = [];
+    console.log("I have poo" + this.stomach);
   }
 }
 
-var somebody = new Person("Tola", 70);
+class Being extends Person {
+  constructor(name, age, stomach) {
+    super(name, age, stomach);
+    this.name = name;
+    this.age = age;
+    this.stomach = stomach;
+  }
+}
+
+var somebody = new Being("Tola", 70, []);
 somebody.greet();
 somebody.eat("Rice");
+somebody.eat("beans");
 somebody.poop([]);
 // TASK 2
