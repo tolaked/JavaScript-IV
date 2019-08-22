@@ -75,3 +75,25 @@ const James = new Student("James", 20, "Lagos", "Trading", "WEBEU3", [
 James.listsSubjects();
 James.PRAssignment("Ruby");
 James.sprintChallenge("Ruby");
+
+class PM extends Person {
+  constructor(name, age, location, gradClassName, favInstructor) {
+    super(name, age, location);
+    this.name = name;
+    this.age = age;
+    this.location = location;
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
+
+  standUp(channel) {
+    console.log(`${this.name} announces ${channel} @channel standy time`);
+  }
+
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'\s code on ${subject}`);
+  }
+}
+const TL = new PM("Anna", 30, "Europe", "WEBEU2", "Gabe");
+TL.standUp("general");
+TL.debugsCode({ name: "Tola" }, "JavaScript Callbacks");
