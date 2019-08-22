@@ -98,3 +98,84 @@ somebody.eat("Rice");
 somebody.eat("beans");
 somebody.poop([]);
 // TASK 2
+
+// - Build a Car constructor that takes model name and make.
+// - Give cars the ability to drive a distance.
+// - By driving a car, the distance driven should be added to an "odometer" property.
+// - Give cars the ability to crash.
+// - A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
+// - Give cars the ability to be repaired.
+// - A repaired car can be driven again.
+
+class Car {
+  constructor(model, name, make, odometer) {
+    this.model = model;
+    this.name = name;
+    this.make = make;
+    this.odometer = 60;
+  }
+
+  drive(distance) {
+    // canDrive = true;
+    this.odometer += distance;
+    console.log(`I have gone ${this.odometer}miles`);
+  }
+
+  crash(isCrashed) {
+    isCrashed = true;
+    if (isCrashed) {
+      console.log(`I crashed at ${this.odometer}miles`);
+    } else {
+      console.log("You can drive");
+    }
+  }
+
+  repaired(isRepaired) {
+    isRepaired = true;
+    if (isRepaired) {
+      console.log(`Repaired, you can drive`);
+    } else {
+      console.log("Faulty!!!");
+    }
+  }
+}
+
+class Vehicle extends Car {
+  constructor(model, name, make) {
+    super(model, name, make);
+    this.model = model;
+    this.name = name;
+    this.make = make;
+  }
+}
+
+var Toyota = new Vehicle("2016", "Toyo", "Avalon");
+Toyota.drive(20);
+Toyota.crash();
+Toyota.repaired();
+
+// TASK 3
+
+// - Build a Baby constructor that subclasses the Person built earlier.
+// - Babies of course inherit the ability to greet, which can be strange.
+// - Babies should have the ability to play, which persons don't.
+// - By playing, a string is returned with some text of your choosing.
+
+class Baby extends Person {
+  constructor(name, age) {
+    super(name, age);
+    this.name = name;
+    this.age = age;
+  }
+  play(playsound) {
+    console.log(playsound);
+  }
+
+  greet(greetsound) {
+    console.log(greetsound);
+  }
+}
+
+var toddler = new Baby("Jane", 1);
+toddler.play("kirirki");
+toddler.greet("heeyyyh");
