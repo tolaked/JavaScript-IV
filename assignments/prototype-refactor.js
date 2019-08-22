@@ -92,7 +92,7 @@ class Being extends Person {
   }
 }
 
-var somebody = new Being("Tola", 70, []);
+const somebody = new Being("Tola", 70, []);
 somebody.greet();
 somebody.eat("Rice");
 somebody.eat("beans");
@@ -149,7 +149,7 @@ class Vehicle extends Car {
   }
 }
 
-var Toyota = new Vehicle("2016", "Toyo", "Avalon");
+const Toyota = new Vehicle("2016", "Toyo", "Avalon");
 Toyota.drive(20);
 Toyota.crash();
 Toyota.repaired();
@@ -176,6 +176,6 @@ class Baby extends Person {
   }
 }
 
-var toddler = new Baby("Jane", 1);
+const toddler = new Baby("Jane", 1);
 toddler.play("kirirki");
 toddler.greet("heeyyyh");
